@@ -14,9 +14,9 @@ const onPlay = function (data) {
  player.on('timeupdate', throttle(onPlay, 1000));
 
 currentVideoTime = localStorage.getItem(STORAGE_KEY);
-let videoSeconds = JSON.parse(currentVideoTime);
-if (currentVideoTime) {
-    player.setCurrentTime(videoSeconds.seconds);
+let videoSeconds = JSON.parse(currentVideoTime).seconds;
+if (videoSeconds) {
+    player.setCurrentTime(videoSeconds);
 } else{player.setCurrentTime(0)}
 
 
