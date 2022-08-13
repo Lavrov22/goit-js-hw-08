@@ -4,7 +4,7 @@ const STORAGE_KEY = "feedback-form-state";
 const refs = {
     form: document.querySelector('.feedback-form'),
 }
-const formData = {};
+let formData = {};
 refs.form.addEventListener('input', throttle(onFormInput, 500));
 refs.form.addEventListener('submit', onFormSubmit);
 fillForm();
@@ -29,6 +29,7 @@ function fillForm() {
 
 function onFormSubmit(e) {
     e.preventDefault();
+    formData = {};
     localStorage.removeItem(STORAGE_KEY);
     e.target.reset();
     
